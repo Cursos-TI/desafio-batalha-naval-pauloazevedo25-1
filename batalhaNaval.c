@@ -36,5 +36,23 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+    int i; int j;
+    int tabuleiro [10][10];   //Criação Tabuleiro
+    
+    for (i=0; i<10; i++)              //Inicialização Tabuleiro
+        for(j=0; j<10; j++)
+            tabuleiro[i][j]=0;
+
+
+    int navio1[3];
+    int navio2[3];
+
+    for (i=0; i<3; i++){   //Inicialização navios com valor 3
+        navio1[i] = 3;
+        navio2[i] = 3;
+    }
+
+    
+
     return 0;
 }
