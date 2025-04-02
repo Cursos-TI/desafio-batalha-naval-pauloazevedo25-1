@@ -36,23 +36,73 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+    int lNavio1 = 0;  //Linha Navio 1
+    int cNavio1 = 4;   //Coluna Navio 1
+    int lNavio2 = 6;  //Linha Navio 2
+    int cNavio2 = 9;  //Linha Navio 2
+
     int i; int j;
+    
     int tabuleiro [10][10];   //Criação Tabuleiro
+    int navio1[10];            //Criação do navio1 (horizontal)
+    int navio2[10];            //Criação do navio2 (vertical)
     
     for (i=0; i<10; i++)              //Inicialização Tabuleiro
         for(j=0; j<10; j++)
             tabuleiro[i][j]=0;
 
 
-    int navio1[3];
-    int navio2[3];
 
-    for (i=0; i<3; i++){   //Inicialização navios com valor 3
+
+    for (i=0; i<10; i++){   //Inicialização navios com valor 3
         navio1[i] = 3;
         navio2[i] = 3;
     }
 
+    // Adicionando navio 1 (horizontal) no tabuleiro
     
+    if(cNavio1 + 3 < 10){        //Verificando se o navio vai respeitar os limites do tabuleiro
+        for (j=cNavio1; j<cNavio1+3; j++){  
+            if(tabuleiro[lNavio1][j]==0)
+                tabuleiro[lNavio1][j] = navio1[j];
+            else{
+                printf("Sobreposição de navio");
+                break;
+            }    
+                
+        }
+
+    }
+    else
+        printf("Posição inválida! \n");  // Entrada inválida 
+                    
+
+    // Adicionando navio 2 (vertical) no tabuleiro
+
+    if(lNavio2 + 3 < 10){        //Verificando se o navio vai respeitar os limites do tabuleiro
+        for (i=lNavio2; i<lNavio2+3;i++){  
+            if(tabuleiro[i][cNavio2]==0)      
+                tabuleiro[i][cNavio2] = navio2[i];
+            else{
+                printf("Sobreposição de navio");
+                break;
+            }    
+                
+        }
+
+    }
+    else
+        printf("Posição inválida! \n");  // Entrada inválida 
+
+
+    for(i = 0; i < 10; i++){   // Mostrando o tabuleiro
+        for (j=0; j<10; j++)
+            printf("%d ", tabuleiro[i][j]);
+        printf("\n");
+    }
+
+    
+
 
     return 0;
 }
